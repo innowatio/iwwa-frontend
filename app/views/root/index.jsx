@@ -71,7 +71,8 @@ var Root = React.createClass({
             {key: "live", label: "Consumi in tempo reale", url: "/live/", iconPath: icons.iconLiveConsum},
             {key: "alarms", label: "Allarmi", url: "/alarms/", iconPath: icons.iconAlarm},
             {key: "help", label: "Aiuto", onClick: "resetTutorial", iconPath: icons.iconHelp},
-            this.userIsAdmin() ? {key: "admin", label: "Amministratore", url: "/users/", iconPath: icons.iconUserColor} : null
+            this.userIsAdmin() && ENVIRONMENT !== "cordova" ?
+            {key: "admin", label: "Amministratore", url: "/users/", iconPath: icons.iconUserColor} : null
         ].filter(R.identity);
     },
     toggleSidebar: function () {
